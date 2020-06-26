@@ -9,7 +9,7 @@
     - name: boot the server 
       azure_rm_virtualmachine:
         ad_user: masteryadmin@example.com
-        password: < insert your ad password here >
+        password: "{{ vm_password }}"
         resource_group: mastery
         name: mastery1
         admin_username: fedora
@@ -18,10 +18,10 @@
         image:
           offer: fedora
           publisher: tunnelbiz
-          sku: fedora29
+          sku: fedora30
           version: latest
         plan:
-          name: fedora29
+          name: fedora30
           product: fedora
           publisher : tunnelbiz
       register: newserver
