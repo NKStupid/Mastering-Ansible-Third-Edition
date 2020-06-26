@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     vm_password: Password123!
-    resource_group: "cicd-test"
+    resource_group: cicd-test
   tasks:
     - name: boot the server 
       azure_rm_virtualmachine:
