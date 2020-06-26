@@ -4,11 +4,11 @@
   gather_facts: false
   vars:
     vm_password: Password123!
-    resource_group: cicd-test
+    resource_group: test
   tasks:
     - name: boot the server 
       azure_rm_virtualmachine:
-        resource_group: "{{ resource_group }}"
+        resource_group: test
         name: mastery1
         admin_username: fedora
         admin_password: "{{ vm_password }}"
