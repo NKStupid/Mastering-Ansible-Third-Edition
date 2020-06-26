@@ -5,17 +5,9 @@
   vars:
     vm_password: Password123!
     resource_group: "cicd-test"
-    vm_name: testvm
-    location: eastus
   tasks:
-    - name: Create a resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        location: "{{ location }}"
     - name: boot the server 
       azure_rm_virtualmachine:
-        ad_user: masteryadmin@example.com
-        password: "{{ vm_password }}"
         resource_group: "{{ resource_group }}"
         name: mastery1
         admin_username: fedora
