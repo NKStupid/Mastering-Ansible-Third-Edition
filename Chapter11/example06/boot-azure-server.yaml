@@ -15,8 +15,8 @@
     - name: boot the server 
       azure_rm_virtualmachine:
         ad_user: masteryadmin@example.com
-        password: < insert your ad password here >
-        resource_group: mastery
+        password: "{{ vm_password }}"
+        resource_group: {{ resource_group }}
         name: mastery1
         admin_username: fedora
         admin_password: "{{ vm_password }}"
