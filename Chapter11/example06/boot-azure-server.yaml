@@ -4,8 +4,14 @@
   gather_facts: false
   vars:
     vm_password: Password123!
-
-  tasks: 
+    resource_group: "cicd-test"
+    vm_name: testvm
+    location: eastus
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
     - name: boot the server 
       azure_rm_virtualmachine:
         ad_user: masteryadmin@example.com
@@ -18,10 +24,10 @@
         image:
           offer: fedora
           publisher: tunnelbiz
-          sku: fedora29
+          sku: fedora30
           version: latest
         plan:
-          name: fedora29
+          name: fedora30
           product: fedora
           publisher : tunnelbiz
       register: newserver
